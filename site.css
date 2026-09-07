@@ -18,16 +18,24 @@
 }
 body {
     background-color: var(--base3);
+    color: var(--base01);
 }
+
 h1 {
-    color: var(--green);
+    color: var(--yellow);
 }
-nav ul li {
-    display: inline-block;
+
+h2 {
+    color: var(--yellow)
 }
+
 nav ul {
     padding: 0;
     margin: 0;
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 1em;
 }
 nav a {
     text-decoration: none;
@@ -39,4 +47,40 @@ nav a[aria-current] {
     text-decoration: underline;
     color: var(--blue);
     font-size: 1.5em;
+}
+
+.parent {
+    display: flex;
+}
+.left {
+    flex: 1;
+}
+.right {
+    flex: 2;
+}
+.column-three {
+    flex: 2;
+}
+#author{
+    font-size: 1.2em;
+}
+#author-name{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#content {
+    font-size: 1.2em;
+}
+#content .articles {
+    padding-left: 1em;
+    /* list-style-type: none; */
+}
+#content .articles a {
+    text-decoration:  none;
+    color: var(--yellow);
+    font-size: 1.2em;
+}
+#content p {
+    text-align: justify;
 }
