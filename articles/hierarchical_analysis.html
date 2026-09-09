@@ -1,11 +1,53 @@
 <span class="article-title">A practical guide to implementing hierarchical &#120641;arch analysis</span>
 
 <h3>Introduction</h3>
-Ahmad Yasin described a pragmatic approach---oriented on the nature of CPU 
-&#120641;arch---to guide performance improvement.
+<p>
+Yasin described a pragmatic approach - oriented on the nature of CPU 
+&#120641;arch - to guide performance improvement.
 CPU manufacturers provide you with their own tools for following this approach more or
 less (AMD's &#120641;Prof or Intel's VTune). But these tools often need you to 
-work into their mechanics and definitions. Wouldn't it be nice to have a common
-approach for all kinds of CPUs?
+work into their mechanics and own definitions. 
+Wouldn't it be nice to have a common approach for all kinds of CPUs? <br/>
+In this article, I explain the simple setup I often use and how you can built on it 
+whatever you may need for performance profiling.
+</p>
+
+<h3>Preliminaries</h3>
+<p>
+    First, let me clarify that the hierarchical analysis requires you to already know at which part
+    of the software you want to look; or, in other words, you need to have a micro benchmark that
+    you can analyze. We don't discuss here how to get there. <br/>
+    I often analyze samples of the call tree
+    and search for hotspots there. You may, however, have alread a very clear understanding where in 
+    the code the problem is our you are asked to look specifically at a certain part.
+</p>
+
+<p>
+    Let us first examine the typical structure of an x86 CPU. Figure 1 depicts clearly a distinction
+    between a frontend and a backend part. 
+    <div style="text-align: center">
+        <img src="images/uarch_x86_intel.png" style="width: 80%; height: 80%">
+        <p>
+        Figure 1: Typical x86 micro architecture;
+        taken from https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2023-0/top-down-microarchitecture-analysis-method.html,
+        2026/09/09, 01:15 PM
+        </p>
+    </div>
+    A typical, somewhat simplified procedure conducted by the frontend is as follows
+    <ol>
+        <li> The branch predictor / branch prediction unit determines the next instruction to be fetched. </li>
+        <li> 
+            When the request to the L1 instruction cache is finished and the instruction loaded, a decoder takes care on the op code and 
+            translates it into (possibly multiple) micro operations that are enqueued in a micro operation queue for the backend
+            to process.
+        </li>
+    </ol>
+</p>
 
 <h3>Bibliography</h3>
+<ol>
+    <li>
+        Yasin, A. A Top-Down Method for Performance Analysis and Counters Architecture. 
+        In: 2014 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)
+    </li>
+</ol>

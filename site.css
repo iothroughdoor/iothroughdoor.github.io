@@ -98,10 +98,11 @@ nav a[aria-current] {
 }
 
 #content {
-    height: 100%;
+    height: fit-content;
     padding-top: 5px;
     font-size: 1.2em;
     border-top: 1px solid;
+    border: solid;
 }
 #content .articles {
     margin: 0;
