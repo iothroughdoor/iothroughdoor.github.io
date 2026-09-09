@@ -66,27 +66,12 @@ nav a[aria-current] {
     flex: 2;
 }
 
-/*
-#line1 .right {
-    background-color: var(--base2);
-}
-#line1 .column-three {
-    background-color: var(--base2);
-}
-#line2 .right {
-    background-color: var(--base2);
-}
-#line2 .column-three {
-    background-color: var(--base2);
-}
-*/
-
 #line3 {
-    height: 100%;
+    height: fit-content;
 }
 
 #author{
-    height: 100%;
+    min-height: 100vh;
     padding-top: 5px;
     font-size: 1.2em;
     background-color: var(--base2);
@@ -102,12 +87,10 @@ nav a[aria-current] {
     padding-top: 5px;
     font-size: 1.2em;
     border-top: 1px solid;
-    border: solid;
 }
 #content .articles {
     margin: 0;
     padding-left: 1em;
-    /* list-style-type: none; */
 }
 #content .article-title {
     text-decoration:  none;
